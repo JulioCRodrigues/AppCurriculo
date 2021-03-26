@@ -1,19 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, Alert, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import Card from './components/card/card';
 
 export default function AppCurriculo() {
 
   function handleRedeSocial(rede_social) {
     switch (rede_social) {
       case 'linkedin':
-        Alert.alert('Meu linkedin:','https://www.linkedin.com/in/juliocrodrigues/')
+        Alert.alert('Meu linkedin:', 'https://www.linkedin.com/in/juliocrodrigues/')
         break
       case 'github':
-        Alert.alert('Meu github:','https://github.com/JulioCRodrigues')
+        Alert.alert('Meu github:', 'https://github.com/JulioCRodrigues')
         break
       case 'facebook':
-        Alert.alert('Meu facebook:','Rede indisponível no momento!')
+        Alert.alert('Meu facebook:', 'Rede indisponível no momento!')
         break
     }
   }
@@ -40,30 +41,14 @@ export default function AppCurriculo() {
         </View>
       </View>
       <ScrollView>
-        <View style={style.card_container}>
-          <View style={style.card}>
+        <Card titulo="Formação Acadêmica">
+          <Text style={style.card_content_text}>Fatec Franca - ADS</Text>
+          <Text style={style.card_content_text}>Fatec Franca - DSM</Text>
+        </Card>
+        <Card titulo="Experiência Profissional">
+          <Text style={style.card_content_text}>Magazine Luiza</Text>
+        </Card>
 
-            <View style={style.card_header}>
-              <Text>Experiência Profissional</Text>
-            </View>
-            <View style={style.card_content}>
-              <Text style={style.card_content_text}>Magazine Luiza</Text>
-
-            </View>
-
-          </View>
-          <View style={style.card}>
-
-            <View style={style.card_header}>
-              <Text>Formação Acadêmica</Text>
-            </View>
-            <View style={style.card_content}>
-              <Text style={style.card_content_text}>Fatec - Análise e Densenvolvimento de Sistemas</Text>
-              <Text style={style.card_content_text}>Fatec - Desenvolvimento Software Multiplataforma</Text>
-            </View>
-
-          </View>
-        </View>
       </ScrollView>
     </View>
   )
@@ -109,33 +94,10 @@ const style = StyleSheet.create({
     marginTop: 20
   },
 
-  card_container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 10,
-
-  },
-
-  card: {
-    width: '60%',
-    borderRadius: 5,
-    borderWidth: 2,
-    borderColor: '#939393',
-    marginTop: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-
-
-  },
-
-  card_content: {
-    marginTop: 20,
-
-  },
-
   card_content_text: {
     color: '#939393',
     marginBottom: 10
   }
+
+
 })
